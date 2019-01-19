@@ -1,0 +1,49 @@
+#head{
+  display: flex;
+  justify-content: space-around;
+  background-color: gold;
+}
+
+.logo {
+  height: 30px;
+  width: 30px;
+  display: block;
+  margin-top: 50%;
+
+}
+
+h1  {
+  text-align: center;
+  background-color: white;
+}
+
+
+body  {
+  background-image: url('https://www.brewdog.com/images/cms/blog/1439813037BrewDogbacksUKMinimumAlcoholPricing.jpg');
+  background-repeat: no-repeat;
+  font-family: 'Staatliches', cursive;
+}
+
+.beer-result {
+  background-color: white;
+}
+
+.beer-pic {
+  height: 200px;
+  width: 60px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+#birrette {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+/* li {
+  list-style: none;
+} */
