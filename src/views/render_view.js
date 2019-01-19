@@ -51,11 +51,25 @@ console.log(this.data);
     shopLink.textContent = "BUY ME !"
     div.appendChild(shopLink)
 
+    const question =  document.createElement('div')
+    question.classList.add("question")
+    div.appendChild(question)
+
+    const yes = document.createElement('button')
+    yes.type = "button"
+    yes.textContent = "YES"
+    yes.onClick = this.questionYes()
+    question.appendChild(yes)
+    console.dir(yes);
 
 
   })
 };
 
+
+RenderView.prototype.questionYes= function () {
+
+};
 
 
 module.exports = RenderView;
