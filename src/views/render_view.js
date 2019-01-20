@@ -3,7 +3,6 @@ const RenderView = function(data , container, beerName){
   this.data = data
   this.container = container
   this.beerName = beerName
-  this.yes
 }
 
 
@@ -49,11 +48,11 @@ RenderView.prototype.render = function () {
 
 
     const shopLink = document.createElement('a')
+    shopLink.classList.add("buy-me")
     shopLink.href = "https://www.brewdog.com/browse/c-BrewDogBeer-1/"
     shopLink.textContent = "BUY ME !"
     div.appendChild(shopLink)
 
-    console.log(this.beerName);
 
 
     if (localStorage.getItem(this.beerName) === "yes"){

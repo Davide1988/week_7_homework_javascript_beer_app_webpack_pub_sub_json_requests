@@ -1,5 +1,6 @@
 const PubSub = require('../helpers/pub_sub.js')
 const RenderView = require('./render_view.js')
+const ForGraphichView = require('./for_graphic_view.js')
 
 const FirstView = function(selector , container){
   this.selector = selector
@@ -11,6 +12,7 @@ FirstView.prototype.bindEvents = function () {
   PubSub.subscribe('Beers', (evt)=>{
     this.data = evt.detail
     this.fill(this.data)
+    PubSub.publish('forGrapich', this.data)
   })
   this.selector.addEventListener('change', (evt) =>{
   const beerName = evt.target.value
@@ -31,6 +33,7 @@ FirstView.prototype.fill = function (beers) {
     this.selector.appendChild(option)
   })
 };
+
 
 
 module.exports = FirstView;
