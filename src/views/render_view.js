@@ -3,11 +3,12 @@ const RenderView = function(data , container, beerName){
   this.data = data
   this.container = container
   this.beerName = beerName
+  this.yes
 }
 
 
 RenderView.prototype.render = function () {
-console.log(this.data);
+
   this.container.innerHTML = " "
   this.data.forEach((object) =>{
 
@@ -46,30 +47,67 @@ console.log(this.data);
     div.appendChild(img)
 
 
+
     const shopLink = document.createElement('a')
     shopLink.href = "https://www.brewdog.com/browse/c-BrewDogBeer-1/"
     shopLink.textContent = "BUY ME !"
     div.appendChild(shopLink)
 
+    console.log(this.beerName);
+
+
+    if (localStorage.getItem(this.beerName) === "yes"){
+
+       const saveResponse = document.createElement('p')
+       saveResponse.textContent = "You had this before mate did you like it?"
+       div.appendChild(saveResponse)
+    }
+    else {
+
+
     const question =  document.createElement('div')
     question.classList.add("question")
     div.appendChild(question)
 
+    const sentence = document.createElement('p')
+    sentence.textContent = "Have you ever had this beer before???"
+    question.appendChild(sentence)
+
+
     const yes = document.createElement('button')
     yes.type = "button"
     yes.textContent = "YES"
-    yes.onClick = this.questionYes()
+    yes.value = "yes"
     question.appendChild(yes)
-    console.dir(yes);
 
 
-  })
+    // const no = document.createElement('button')
+    // no.type = "button"
+    // no.textContent = "NO"
+    // no.value = "no"
+    // question.appendChild(no)
+
+
+    yes.addEventListener('click', (evt) =>{
+      evt.preventDefault();
+      localStorage.setItem(this.beerName, evt.target.value);
+      question.innerHTML = "Thanks for your response!"
+    })
+
+    // no.addEventListener('click', (evt) =>{
+    //   evt.preventDefault();
+    //   console.log(evt.target.value);
+    // })
+
+   }
+  });
 };
 
 
-RenderView.prototype.questionYes= function () {
 
-};
+
+
+
 
 
 module.exports = RenderView;
