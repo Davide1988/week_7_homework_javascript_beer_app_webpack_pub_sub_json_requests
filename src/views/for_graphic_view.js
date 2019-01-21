@@ -22,7 +22,7 @@ ForGraphichView.prototype.bindEvents = function () {
 };
 
 ForGraphichView.prototype.fillGraph = function () {
-  console.log(localStorage.getItem("Buzz"));
+  this.body.innerHTML = "THIS IS WHERE MY GRAPH WOULD HAVE BEEN IF I HAD MORE TIME"
 };
 
 
